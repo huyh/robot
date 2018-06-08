@@ -6,7 +6,7 @@ class Table
     @height = height
   end
 
-  def inside?(x, y)
+  def valid_location?(x, y)
     x >= 0 && x < width && y >= 0 && y < height
   end
 end
