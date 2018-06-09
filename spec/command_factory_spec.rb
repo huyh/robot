@@ -19,7 +19,7 @@ describe CommandFactory do
         CommandData.new('RIGHT') => Command::TurnRight,
         CommandData.new('REPORT') => Command::Report
       }.each do |command_data, expected_command_class|
-        it "creates a #{command_data.action} command object" do
+        it "creates a #{command_data.type} command object" do
           expect(factory.create(command_data)).to be_instance_of(expected_command_class)
         end
       end
@@ -28,7 +28,7 @@ describe CommandFactory do
     context 'invalid command' do
       let(:invalid_command_data) { CommandData.new('INVALID') }
 
-      it 'creates an invalid command object' do
+      it 'creates an invalid command object for all unknown action' do
         expect(factory.create(invalid_command_data)).to be_instance_of(Command::Invalid)
       end
     end

@@ -6,7 +6,7 @@ require 'command/report'
 require 'command/invalid'
 
 class CommandFactory
-  VALID_ACTIONS = {
+  VALID_COMMANDS = {
     'PLACE' => Command::Place,
     'MOVE' => Command::Move,
     'LEFT' => Command::TurnLeft,
@@ -15,6 +15,6 @@ class CommandFactory
   }
 
   def create(command_data)
-    VALID_ACTIONS.fetch(command_data.action, Command::Invalid).new(*command_data.arguments)
+    VALID_COMMANDS.fetch(command_data.type, Command::Invalid).new(*command_data.arguments)
   end
 end

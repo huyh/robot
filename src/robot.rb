@@ -1,5 +1,5 @@
 class Robot
-  attr_reader :x, :y, :orientation
+  attr_accessor :x, :y, :orientation
 
   def update_location(x: nil, y: nil, orientation: nil)
     @x = x

@@ -1,8 +1,8 @@
 class CommandData
-  attr_reader :action, :arguments
+  attr_reader :type, :arguments
 
-  def initialize(action, *arguments)
-    @action = action
+  def initialize(type, *arguments)
+    @type = type
     @arguments = arguments
   end
 end
