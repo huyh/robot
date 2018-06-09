@@ -1,12 +1,12 @@
 require 'spec_helper'
 require 'robot'
-require 'table'
 require 'command/turn_left'
 
 describe Command::TurnLeft do
   describe '#execute' do
-    let(:table)   { Table.new(5, 3) }
+    let(:table)   { double(:table) }
     let(:robot)   { Robot.new }
+    let(:logger)  { double(:logger) }
     let(:command) { Command::TurnLeft.new }
 
     context 'robot is placed on the table' do
@@ -19,7 +19,7 @@ describe Command::TurnLeft do
         it "rotates the robot orientation from #{current_orientation} to #{expected_orientation}" do
           robot.update_location(x: 0, y: 1, orientation: current_orientation)
 
-          command.execute(robot, table)
+          command.execute(robot, table, logger)
 
           expect(robot.x).to eq(0)
           expect(robot.y).to eq(1)
@@ -30,7 +30,7 @@ describe Command::TurnLeft do
 
     context 'robot is not placed on the table' do
       it 'does nothing' do
-        command.execute(robot, table)
+        command.execute(robot, table, logger)
 
         expect(robot.x).to be_nil
         expect(robot.y).to be_nil

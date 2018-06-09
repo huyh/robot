@@ -1,8 +1,9 @@
 require 'orientation'
+require 'command/base'
 
 module Command
-  class Move
-    def execute(robot, table)
+  class Move < Base
+    def execute(robot, table, _logger)
       return unless robot.placed?
 
       case robot.orientation

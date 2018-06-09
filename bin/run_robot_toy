@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../src', __FILE__)
+
+require 'robot_toy_runner'
+
+RobotToyRunner.new(ARGV[0]).run

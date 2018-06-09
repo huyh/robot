@@ -7,11 +7,11 @@ require 'command/invalid'
 
 class CommandFactory
   VALID_COMMANDS = {
-    'PLACE' => Command::Place,
-    'MOVE' => Command::Move,
-    'LEFT' => Command::TurnLeft,
-    'RIGHT' => Command::TurnRight,
-    'REPORT' => Command::Report
+    'PLACE'   => Command::Place,
+    'MOVE'    => Command::Move,
+    'LEFT'    => Command::TurnLeft,
+    'RIGHT'   => Command::TurnRight,
+    'REPORT'  => Command::Report
   }
 
   def create(command_data)

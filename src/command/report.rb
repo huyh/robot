@@ -1,8 +1,10 @@
+require 'command/base'
+
 module Command
-  class Report
-    def execute(robot, _table)
+  class Report < Base
+    def execute(robot, _table, logger)
       return unless robot.placed?
-      puts "#{robot.x},#{robot.y},#{robot.orientation}"
+      logger.log("#{robot.x},#{robot.y},#{robot.orientation}")
     end
   end
 end
